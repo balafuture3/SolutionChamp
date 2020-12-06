@@ -23,14 +23,6 @@ class LoginPageState extends State<LoginPage> {
   bool validateE=false;
 
   bool validateP =false;
-  Future<bool> setRegistered(userid, token,email) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('userid', userid);
-    await prefs.setString('token', token);
-    await prefs.setString('email', email);
-    await prefs.setBool('seen', true);
-    return true;
-  }
   Future<bool> check() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.mobile) {
